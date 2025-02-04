@@ -4,7 +4,9 @@
 
 [sub_resource type="SphereMesh" id="SphereMesh_8ef58"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_p7y3n"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_iggri"]
+custom_solver_bias = 0.056
+margin = 0.457
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_316xe")
@@ -13,4 +15,4 @@ script = ExtResource("1_316xe")
 mesh = SubResource("SphereMesh_8ef58")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_p7y3n")
+shape = SubResource("SphereShape3D_iggri")

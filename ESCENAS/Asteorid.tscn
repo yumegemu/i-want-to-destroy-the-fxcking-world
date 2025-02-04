@@ -9,6 +9,8 @@ albedo_color = Color(0, 0.225954, 0.226139, 1)
 material = SubResource("StandardMaterial3D_i4ipm")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yjqah"]
+custom_solver_bias = 0.68
+margin = 0.734
 
 [node name="Asteroid" type="CharacterBody3D"]
 script = ExtResource("1_qdeut")
