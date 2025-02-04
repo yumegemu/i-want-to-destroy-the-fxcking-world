@@ -26,6 +26,7 @@ _data = {
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_qmn8u"]
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
+collision_mask = 3
 script = ExtResource("1_p2w56")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
