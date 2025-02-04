@@ -1,10 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://v2vvqmiqynpo"]
+[gd_scene load_steps=2 format=3 uid="uid://cyqcku18thxbr"]
 
-[ext_resource type="Script" path="res://Scripts/spawn_enemy.gd" id="1_en0b6"]
+[ext_resource type="Script" path="res://Scripts/spawn_ufo.gd" id="1_vomrw"]
 
 [node name="SpawnEnemy" type="Node3D"]
-visible = false
-script = ExtResource("1_en0b6")
+script = ExtResource("1_vomrw")
 
 [node name="TimerSpawn" type="Timer" parent="."]
 process_callback = 0

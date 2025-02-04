@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://cjuhg4wf35nti"]
+
+[ext_resource type="Script" path="res://Scripts/Asteroide.gd" id="1_q5lr2"]
+[ext_resource type="PackedScene" uid="uid://bb5kyfwdi5xiq" path="res://Assets/ufo.glb" id="2_vbivm"]
+[ext_resource type="Animation" uid="uid://dy5ng17ov05wr" path="res://Assets/ufo-spinning-loop.res" id="3_wqohf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gahue"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sukh7"]
+animation = &"a/ufo-spinning-loop"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_oetbd"]
+graph_offset = Vector2(-89.6364, 21.7273)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_sukh7")
+nodes/Animation/position = Vector2(520, 80)
+nodes/output/position = Vector2(820, 100)
+node_connections = [&"output", 0, &"Animation"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6adoy"]
+_data = {
+"ufo-spinning-loop": ExtResource("3_wqohf")
+}
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_q5lr2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_gahue")
+
+[node name="ufo" parent="." instance=ExtResource("2_vbivm")]
+
+[node name="AnimationTree" type="AnimationTree" parent="ufo"]
+tree_root = SubResource("AnimationNodeBlendTree_oetbd")
+anim_player = NodePath("../AnimationPlayer2")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="ufo"]
+libraries = {
+"a": SubResource("AnimationLibrary_6adoy")
+}
+movie_quit_on_finish = true
