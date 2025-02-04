@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq4hbpfu32ehn"]
+
+[ext_resource type="PackedScene" uid="uid://cxmjmjnk1xkqq" path="res://Assets/star-character.glb" id="1_bopoh"]
+
+[node name="star-character" instance=ExtResource("1_bopoh")]
+
+[node name="Plane" parent="." index="0"]
+transform = Transform3D(-0.76002, -0.131575, -0.636442, -0.489534, 0.76002, 0.427465, 0.427465, 0.636441, -0.642041, 0, 0, 0)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "PlaneAction"

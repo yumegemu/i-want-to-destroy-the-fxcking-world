@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmyrmxn7ao74u"]
+
+[ext_resource type="PackedScene" uid="uid://b1w158s5ssjlp" path="res://Escenas/Player.tscn" id="1_vcahg"]
+[ext_resource type="PackedScene" uid="uid://cyqcku18thxbr" path="res://Escenas/SpawnUFO.tscn" id="2_sqgrx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmuwa"]
+
+[sub_resource type="Sky" id="Sky_rquai"]
+sky_material = SubResource("ProceduralSkyMaterial_mmuwa")
+
+[sub_resource type="Environment" id="Environment_u205w"]
+background_mode = 2
+sky = SubResource("Sky_rquai")
+
+[node name="Level1" type="Node3D"]
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_vcahg")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_u205w")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="SpawnEnemy" parent="." instance=ExtResource("2_sqgrx")]
