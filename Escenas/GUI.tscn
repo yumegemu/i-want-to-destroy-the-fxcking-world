@@ -45,6 +45,15 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 60
 text = "Perdiste"
 
+[node name="time_remainer" type="Label" parent="Background/Perdiste"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 25
+
+[node name="Restart" type="Button" parent="Background/Perdiste"]
+layout_mode = 2
+text = "Restart"
+
 [node name="Ganaste" type="VBoxContainer" parent="Background"]
 layout_mode = 1
 anchors_preset = 8
@@ -79,3 +88,5 @@ theme_override_constants/separation = 20
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 60
+
+[connection signal="pressed" from="Background/Perdiste/Restart" to="." method="_on_restart_pressed"]

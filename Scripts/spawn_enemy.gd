@@ -5,7 +5,7 @@ extends Node3D
 var enemy = preload("res://Escenas/Asteroide.tscn")
 
 func _ready():
-	var nroSiguienteNivel = get_tree().current_scene.name.replace(".tscn", "")
+	var nroSiguienteNivel = get_tree().current_scene.name
 	
 	if "Level1" == nroSiguienteNivel :
 		enemy = preload("res://Escenas/Asteroide.tscn")

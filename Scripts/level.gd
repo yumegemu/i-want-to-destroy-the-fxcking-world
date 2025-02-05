@@ -7,7 +7,11 @@ func _ready():
 	gui.start()
 
 func perdiste():
-	gui.perdiste()
+	timer.set_paused(true)
+	var timer_remainer = timer.time_left
+	gui.perdiste(timer_remainer)
+	
+
 
 func _on_timer_timeout() -> void:
 	gui.ganaste()

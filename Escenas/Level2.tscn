@@ -34,7 +34,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 4.338
+wait_time = 10.0
 one_shot = true
 autostart = true
 
