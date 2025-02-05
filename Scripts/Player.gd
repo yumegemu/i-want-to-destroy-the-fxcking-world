@@ -30,9 +30,10 @@ func colision() -> void:
 	ray_querry.exclude = [self]
 	ray_querry.collision_mask = 2
 	
+	
 	var space_state = get_world_3d().direct_space_state
 	var result = space_state.intersect_ray(ray_querry)
-	
+	print(result.values())
 	if len(result) > 0:
 		level.perdiste()
 	
