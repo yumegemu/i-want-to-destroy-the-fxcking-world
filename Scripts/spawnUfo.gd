@@ -2,7 +2,7 @@ extends Node3D
 
 @onready var timer_spawn = $TimerSpawn
 
-var enemy = preload("res://Escenas/Ufo.tscn")
+var enemy = preload("res://Escenas/Ufo/ufo.tscn")
 
 func _on_timer_spawn_timeout() -> void:
 	spaw_enemy()
