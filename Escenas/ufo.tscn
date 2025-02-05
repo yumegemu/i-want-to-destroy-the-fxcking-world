@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bb5kyfwdi5xiq" path="res://Assets/ufo.glb" id="2_vbivm"]
 [ext_resource type="Animation" uid="uid://c5iegql4cha4j" path="res://Assets/ufo-spinning-loop.res" id="3_wqohf"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gahue"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_xplkn"]
+radius = 0.9
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sukh7"]
 animation = &"a/ufo-spinning-loop"
@@ -26,7 +27,8 @@ collision_layer = 2
 script = ExtResource("1_q5lr2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_gahue")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.085)
+shape = SubResource("SphereShape3D_xplkn")
 
 [node name="ufo" parent="." instance=ExtResource("2_vbivm")]
 

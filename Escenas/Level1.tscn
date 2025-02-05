@@ -18,6 +18,7 @@ sky = SubResource("Sky_rquai")
 script = ExtResource("1_tj28w")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_pl4l6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
