@@ -5,4 +5,5 @@ extends CharacterBody3D
 
 func _physics_process(delta: float) -> void:
 	velocity = Vector3(0,0,10) * velocidad * delta
-	move_and_slide()
+	if move_and_slide():
+		self.queue_free()

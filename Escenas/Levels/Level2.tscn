@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2mef44jknin1"]
+[gd_scene load_steps=10 format=3 uid="uid://d2mef44jknin1"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_7i4iw"]
-[ext_resource type="PackedScene" uid="uid://b1w158s5ssjlp" path="res://Escenas/Player.tscn" id="1_vcahg"]
-[ext_resource type="PackedScene" uid="uid://btf4gq484qkm" path="res://Escenas/GUI.tscn" id="3_0r16j"]
-[ext_resource type="PackedScene" uid="uid://div0wmvkojqpq" path="res://Escenas/SpawnUfo.tscn" id="4_fhcci"]
-[ext_resource type="PackedScene" uid="uid://sgrd811hlmw2" path="res://Escenas/SpawnAsteroid.tscn" id="5_brkc5"]
+[ext_resource type="PackedScene" uid="uid://b1w158s5ssjlp" path="res://Escenas/Player/Player.tscn" id="1_vcahg"]
+[ext_resource type="PackedScene" uid="uid://btf4gq484qkm" path="res://Escenas/GUI/GUI.tscn" id="3_0r16j"]
+[ext_resource type="PackedScene" uid="uid://div0wmvkojqpq" path="res://Escenas/Spawn/SpawnUfo.tscn" id="4_fhcci"]
+[ext_resource type="PackedScene" uid="uid://sgrd811hlmw2" path="res://Escenas/Spawn/SpawnAsteroid.tscn" id="5_brkc5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmuwa"]
 
@@ -15,11 +15,14 @@ sky_material = SubResource("ProceduralSkyMaterial_mmuwa")
 background_mode = 2
 sky = SubResource("Sky_rquai")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_w8e6w"]
+radius = 1.5
+
 [node name="Level2" type="Node3D"]
 script = ExtResource("1_7i4iw")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_vcahg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 0, -1, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
@@ -41,5 +44,13 @@ autostart = true
 [node name="SpawnUfo" parent="." instance=ExtResource("4_fhcci")]
 
 [node name="SpawnAsteriod" parent="." instance=ExtResource("5_brkc5")]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_mask = 3
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.1, 0, 3.44615)
+shape = SubResource("SphereShape3D_w8e6w")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

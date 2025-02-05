@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7c17djtk22in"]
+[gd_scene load_steps=9 format=3 uid="uid://c7c17djtk22in"]
 
-[ext_resource type="PackedScene" uid="uid://b1w158s5ssjlp" path="res://Escenas/Player.tscn" id="1_pl4l6"]
+[ext_resource type="PackedScene" uid="uid://b1w158s5ssjlp" path="res://Escenas/Player/Player.tscn" id="1_pl4l6"]
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_tj28w"]
-[ext_resource type="PackedScene" uid="uid://btf4gq484qkm" path="res://Escenas/GUI.tscn" id="3_r0gdb"]
-[ext_resource type="PackedScene" uid="uid://sgrd811hlmw2" path="res://Escenas/SpawnAsteroid.tscn" id="4_021wc"]
+[ext_resource type="PackedScene" uid="uid://btf4gq484qkm" path="res://Escenas/GUI/GUI.tscn" id="3_r0gdb"]
+[ext_resource type="PackedScene" uid="uid://sgrd811hlmw2" path="res://Escenas/Spawn/SpawnAsteroid.tscn" id="4_021wc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmuwa"]
 
@@ -13,6 +13,9 @@ sky_material = SubResource("ProceduralSkyMaterial_mmuwa")
 [sub_resource type="Environment" id="Environment_u205w"]
 background_mode = 2
 sky = SubResource("Sky_rquai")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fisxu"]
+radius = 1.5
 
 [node name="Level1" type="Node3D"]
 script = ExtResource("1_tj28w")
@@ -36,8 +39,16 @@ one_shot = true
 autostart = true
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_pl4l6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 0, -1, 0)
 
 [node name="SpawnAsteriod" parent="." instance=ExtResource("4_021wc")]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_mask = 3
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.1, 0, 3.44615)
+shape = SubResource("SphereShape3D_fisxu")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
