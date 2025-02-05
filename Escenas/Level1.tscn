@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c7c17djtk22in"]
 
 [ext_resource type="PackedScene" uid="uid://b1w158s5ssjlp" path="res://Escenas/Player.tscn" id="1_pl4l6"]
-[ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_tj28w"]
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_tj28w"]
 [ext_resource type="PackedScene" uid="uid://v2vvqmiqynpo" path="res://Escenas/SpawnEnemy.tscn" id="2_fgf05"]
 [ext_resource type="PackedScene" uid="uid://btf4gq484qkm" path="res://Escenas/GUI.tscn" id="3_r0gdb"]
 
@@ -35,3 +35,10 @@ visible = true
 visible = false
 size_flags_horizontal = 0
 size_flags_vertical = 0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqb0gqlo8mchn"]
+[gd_scene load_steps=8 format=3 uid="uid://dqb0gqlo8mchn"]
 
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_ct7bg"]
 [ext_resource type="PackedScene" uid="uid://b1w158s5ssjlp" path="res://Escenas/Player.tscn" id="1_pypsi"]
 [ext_resource type="PackedScene" uid="uid://ccyyqeelpbjsc" path="res://Escenas/SpawnRocket.tscn" id="2_moy7q"]
+[ext_resource type="PackedScene" uid="uid://btf4gq484qkm" path="res://Escenas/GUI.tscn" id="4_wa7px"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmuwa"]
 
@@ -12,7 +14,8 @@ sky_material = SubResource("ProceduralSkyMaterial_mmuwa")
 background_mode = 2
 sky = SubResource("Sky_rquai")
 
-[node name="Level1" type="Node3D"]
+[node name="Level3" type="Node3D"]
+script = ExtResource("1_ct7bg")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_pypsi")]
 
@@ -25,3 +28,12 @@ environment = SubResource("Environment_u205w")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 
 [node name="SpawnEnemy" parent="." instance=ExtResource("2_moy7q")]
+
+[node name="GUI" parent="." instance=ExtResource("4_wa7px")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.212
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

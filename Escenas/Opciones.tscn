@@ -54,6 +54,8 @@ theme_override_font_sizes/font_size = 50
 text = "ATRAS"
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/Volumen" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Volumen" to="." method="_on_volumen_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/Resolucion" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Resolucion" to="." method="_on_resolucion_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/Atras" to="." method="_on_salir_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/Atras" to="." method="_on_atras_pressed"]
