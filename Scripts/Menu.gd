@@ -11,3 +11,6 @@ func _on_salir_pressed():
 
 func _on_volver_pressed():
 	get_tree().change_scene_to_file("res://Escenas/Menu.tscn")
+	
+func _on_atras_pressed():
+	get_tree().change_scene_to_file("res://Escenas/Menu.tscn")
