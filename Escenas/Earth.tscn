@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://yddfm8w6ja5"]
+
+[ext_resource type="PackedScene" uid="uid://bo535ucgwv4uf" path="res://Assets/earth.glb" id="1_k1pp7"]
+
+[node name="earth" instance=ExtResource("1_k1pp7")]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8cy5pnrb5ofn"]
+[gd_scene load_steps=10 format=3 uid="uid://c8cy5pnrb5ofn"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_cfsda"]
 [ext_resource type="PackedScene" uid="uid://btf4gq484qkm" path="res://Escenas/GUI/GUI.tscn" id="2_jaw37"]
 [ext_resource type="PackedScene" uid="uid://b1w158s5ssjlp" path="res://Escenas/Player/Player.tscn" id="3_e2nmh"]
 [ext_resource type="PackedScene" uid="uid://dylo45gq8soql" path="res://Escenas/Spawn/SpawnRocket.tscn" id="4_2ibq7"]
+[ext_resource type="PackedScene" uid="uid://yddfm8w6ja5" path="res://Escenas/Earth.tscn" id="5_s4wnd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmuwa"]
 
@@ -47,5 +48,8 @@ gravity_scale = 0.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.1, 0, 3.44615)
 shape = SubResource("SphereShape3D_dh37i")
+
+[node name="earth" parent="." instance=ExtResource("5_s4wnd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, -100)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
