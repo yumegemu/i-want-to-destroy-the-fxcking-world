@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_ct7bg"]
 [ext_resource type="PackedScene" uid="uid://b1w158s5ssjlp" path="res://Escenas/Player.tscn" id="1_pypsi"]
-[ext_resource type="PackedScene" uid="uid://ccyyqeelpbjsc" path="res://Escenas/SpawnRocket.tscn" id="2_moy7q"]
+[ext_resource type="PackedScene" uid="uid://v2vvqmiqynpo" path="res://Escenas/SpawnEnemy.tscn" id="3_tqccp"]
 [ext_resource type="PackedScene" uid="uid://btf4gq484qkm" path="res://Escenas/GUI.tscn" id="4_wa7px"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmuwa"]
@@ -27,7 +27,7 @@ environment = SubResource("Environment_u205w")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 
-[node name="SpawnEnemy" parent="." instance=ExtResource("2_moy7q")]
+[node name="SpawnEnemy" parent="." instance=ExtResource("3_tqccp")]
 
 [node name="GUI" parent="." instance=ExtResource("4_wa7px")]
 

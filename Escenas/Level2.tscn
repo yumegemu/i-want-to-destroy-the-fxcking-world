@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmyrmxn7ao74u"]
+[gd_scene load_steps=8 format=3 uid="uid://d2mef44jknin1"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_7i4iw"]
 [ext_resource type="PackedScene" uid="uid://b1w158s5ssjlp" path="res://Escenas/Player.tscn" id="1_vcahg"]
-[ext_resource type="PackedScene" uid="uid://cyqcku18thxbr" path="res://Escenas/SpawnUFO.tscn" id="2_sqgrx"]
 [ext_resource type="PackedScene" uid="uid://btf4gq484qkm" path="res://Escenas/GUI.tscn" id="3_0r16j"]
+[ext_resource type="PackedScene" uid="uid://v2vvqmiqynpo" path="res://Escenas/SpawnEnemy.tscn" id="3_i3dvl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmuwa"]
 
@@ -27,7 +27,7 @@ environment = SubResource("Environment_u205w")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 
-[node name="SpawnEnemy" parent="." instance=ExtResource("2_sqgrx")]
+[node name="SpawnEnemy" parent="." instance=ExtResource("3_i3dvl")]
 
 [node name="GUI" parent="." instance=ExtResource("3_0r16j")]
 size_flags_horizontal = 4

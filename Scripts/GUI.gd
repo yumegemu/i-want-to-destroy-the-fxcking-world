@@ -26,7 +26,6 @@ func ganaste():
 	var nroSiguienteNivel = get_tree().current_scene.name.replace("Level", "").replace(".tscn", "")
 	
 	if int(nroSiguienteNivel) + 1 > 3 :
-		print("entro ganaste")
 		get_tree().change_scene_to_file("res://Escenas/GanasteJuego.tscn")
 		return null
 		
