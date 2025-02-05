@@ -28,7 +28,7 @@ func ganaste():
 	# Busca el nombre de la escena actual, le saca level y la extencion
 	var nroSiguienteNivel = get_tree().current_scene.name.replace("Level", "")
 	
-	if int(nroSiguienteNivel) + 1 > 3 :
+	if int(nroSiguienteNivel) + 1 > 4 :
 		get_tree().change_scene_to_file("res://Escenas/GUI/GanasteJuego.tscn")
 		return null
 		

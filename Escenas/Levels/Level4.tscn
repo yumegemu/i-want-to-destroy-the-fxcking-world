@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqb0gqlo8mchn"]
+[gd_scene load_steps=9 format=3 uid="uid://c8cy5pnrb5ofn"]
 
-[ext_resource type="Script" path="res://Scripts/level.gd" id="1_ct7bg"]
-[ext_resource type="PackedScene" uid="uid://b1w158s5ssjlp" path="res://Escenas/Player/Player.tscn" id="1_pypsi"]
-[ext_resource type="PackedScene" uid="uid://db2spp1xtvw8v" path="res://Escenas/Spawn/SpawnSatelites.tscn" id="3_j4spy"]
-[ext_resource type="PackedScene" uid="uid://btf4gq484qkm" path="res://Escenas/GUI/GUI.tscn" id="4_wa7px"]
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_cfsda"]
+[ext_resource type="PackedScene" uid="uid://btf4gq484qkm" path="res://Escenas/GUI/GUI.tscn" id="2_jaw37"]
+[ext_resource type="PackedScene" uid="uid://b1w158s5ssjlp" path="res://Escenas/Player/Player.tscn" id="3_e2nmh"]
+[ext_resource type="PackedScene" uid="uid://dylo45gq8soql" path="res://Escenas/Spawn/SpawnRocket.tscn" id="4_2ibq7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmuwa"]
 
@@ -17,8 +17,8 @@ sky = SubResource("Sky_rquai")
 [sub_resource type="SphereShape3D" id="SphereShape3D_dh37i"]
 radius = 1.5
 
-[node name="Level3" type="Node3D"]
-script = ExtResource("1_ct7bg")
+[node name="Level4" type="Node3D"]
+script = ExtResource("1_cfsda")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
@@ -28,17 +28,17 @@ environment = SubResource("Environment_u205w")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 
-[node name="GUI" parent="." instance=ExtResource("4_wa7px")]
+[node name="GUI" parent="." instance=ExtResource("2_jaw37")]
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
 autostart = true
 
-[node name="SpawnSatellites" parent="." instance=ExtResource("3_j4spy")]
-
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_pypsi")]
+[node name="CharacterBody3D" parent="." instance=ExtResource("3_e2nmh")]
 transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 0, -1, 0)
+
+[node name="SpawnRocket" parent="." instance=ExtResource("4_2ibq7")]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 collision_mask = 3

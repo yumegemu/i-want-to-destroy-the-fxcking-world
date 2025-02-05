@@ -26,7 +26,7 @@ func spaw_enemy():
 
 	if 2 == spriteNumber:
 		newEnemy = enemy2.instantiate()
-	else:
+	elif 0 == spriteNumber:
 		newEnemy = enemy3.instantiate()
 	
 	newEnemy.position = Vector3(random(),random(),-10)
