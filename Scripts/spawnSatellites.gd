@@ -2,21 +2,12 @@ extends Node3D
 
 @onready var timer_spawn = $TimerSpawn
 
-var enemy = preload("res://Escenas/Asteroids/Asteroide1.tscn")
-var enemy2 = preload("res://Escenas/Asteroids/Asteroide2.tscn")
-var enemy3 = preload("res://Escenas/Asteroids/Asteroide3.tscn")
-
-var nivelName = ""
-
-func _start():
-	var nivelName = get_tree().current_scene.name
+var enemy = preload("res://Escenas/Satellites/Satellite1.tscn")
+var enemy2 = preload("res://Escenas/Satellites/Satellite2.tscn")
+var enemy3 = preload("res://Escenas/Satellites/Satellite3.tscn")
 
 func _on_timer_spawn_timeout() -> void:
-	if nivelName == "Level2":
-		timer_spawn.start(4)
-		spaw_enemy()
-	else:
-		spaw_enemy()
+	spaw_enemy()
 
 func spaw_enemy():
 	

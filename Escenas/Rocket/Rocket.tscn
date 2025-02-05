@@ -1,0 +1,68 @@
+[gd_scene load_steps=14 format=3 uid="uid://b6uigx467hgn0"]
+
+[ext_resource type="Script" path="res://Scripts/Rocket.gd" id="1_32ras"]
+[ext_resource type="PackedScene" uid="uid://bpdebo0lo6spd" path="res://Assets/Updated assets/missile.glb" id="2_2oxvq"]
+[ext_resource type="Animation" uid="uid://cd2xfj0yv4e04" path="res://Assets/Updated assets/rocket-spin.res" id="3_anrmx"]
+[ext_resource type="Animation" uid="uid://b0b7sv01omwyh" path="res://Assets/Updated assets/rocket-power-2.res" id="4_jdbbc"]
+[ext_resource type="Animation" uid="uid://bku38gi82xnlr" path="res://Assets/Updated assets/rocket-power-1.res" id="5_fuw4m"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mqu1w"]
+radius = 0.3
+height = 2.4
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qjbd5"]
+_data = {
+"rocket-power-1": ExtResource("5_fuw4m"),
+"rocket-power-2": ExtResource("4_jdbbc"),
+"rocket-spin": ExtResource("3_anrmx")
+}
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_qp7h2"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_if6d7"]
+animation = &"a/rocket-power-2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fdjcb"]
+animation = &"a/rocket-spin"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x2egh"]
+animation = &"a/rocket-power-1"
+
+[sub_resource type="AnimationNodeSub2" id="AnimationNodeSub2_buopt"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_6ecw4"]
+graph_offset = Vector2(-173.479, -4.83396)
+nodes/Add2/node = SubResource("AnimationNodeAdd2_qp7h2")
+nodes/Add2/position = Vector2(453.333, 266.667)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_x2egh")
+nodes/Animation/position = Vector2(160, 213.333)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_if6d7")
+"nodes/Animation 2/position" = Vector2(213.333, 426.667)
+"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_fdjcb")
+"nodes/Animation 3/position" = Vector2(453.333, 80)
+nodes/Sub2/node = SubResource("AnimationNodeSub2_buopt")
+nodes/Sub2/position = Vector2(720, 160)
+nodes/output/position = Vector2(986.667, 160)
+node_connections = [&"Add2", 0, &"Animation", &"Add2", 1, &"Animation 2", &"Sub2", 0, &"Animation 3", &"Sub2", 1, &"Add2", &"output", 0, &"Sub2"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_32ras")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0.2)
+shape = SubResource("CapsuleShape3D_mqu1w")
+
+[node name="missile" parent="." instance=ExtResource("2_2oxvq")]
+transform = Transform3D(0.3, 0, 0, 0, -1.31134e-08, -0.3, 0, 0.3, -1.31134e-08, 0, 0, 0)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="missile"]
+libraries = {
+"a": SubResource("AnimationLibrary_qjbd5")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="missile"]
+tree_root = SubResource("AnimationNodeBlendTree_6ecw4")
+anim_player = NodePath("../AnimationPlayer2")
+parameters/Add2/add_amount = 0.16
+parameters/Sub2/sub_amount = 0.04

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://l11rty03kpya"]
+
+[ext_resource type="Script" path="res://Scripts/Asteroide.gd" id="1_5gxfc"]
+[ext_resource type="PackedScene" uid="uid://cbfhx6dbad2on" path="res://Assets/asteroid1.glb" id="2_bqbdb"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_uhf38"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_5gxfc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_uhf38")
+
+[node name="asteroid1" parent="." instance=ExtResource("2_bqbdb")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, -2.16)

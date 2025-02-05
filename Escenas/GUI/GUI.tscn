@@ -75,6 +75,7 @@ theme_override_font_sizes/font_size = 60
 text = "Ganaste"
 
 [node name="Timer" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
