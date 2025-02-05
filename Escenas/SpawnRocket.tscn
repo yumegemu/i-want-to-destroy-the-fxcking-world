@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dylo45gq8soql"]
+
+[ext_resource type="Script" path="res://Scripts/spawnRocket.gd" id="1_lyl6r"]
+
+[node name="SpawnRocket" type="Node3D"]
+visible = false
+script = ExtResource("1_lyl6r")
+
+[node name="TimerSpawn" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
+[connection signal="timeout" from="TimerSpawn" to="." method="_on_timer_spawn_timeout"]

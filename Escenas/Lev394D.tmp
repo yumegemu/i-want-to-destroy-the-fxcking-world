@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7c17djtk22in"]
+[gd_scene load_steps=9 format=3 uid="uid://c7c17djtk22in"]
 
 [ext_resource type="PackedScene" uid="uid://b1w158s5ssjlp" path="res://Escenas/Player.tscn" id="1_pl4l6"]
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_tj28w"]
+[ext_resource type="PackedScene" uid="uid://v2vvqmiqynpo" path="res://Escenas/SpawnEnemy.tscn" id="2_fgf05"]
 [ext_resource type="PackedScene" uid="uid://btf4gq484qkm" path="res://Escenas/GUI.tscn" id="3_r0gdb"]
-[ext_resource type="PackedScene" uid="uid://sgrd811hlmw2" path="res://Escenas/SpawnAsteroid.tscn" id="4_021wc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmuwa"]
 
@@ -14,8 +14,14 @@ sky_material = SubResource("ProceduralSkyMaterial_mmuwa")
 background_mode = 2
 sky = SubResource("Sky_rquai")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_eyecc"]
+size = Vector3(12, 8, 1)
+
 [node name="Level1" type="Node3D"]
 script = ExtResource("1_tj28w")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_pl4l6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
@@ -24,6 +30,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 environment = SubResource("Environment_u205w")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="SpawnEnemy" parent="." instance=ExtResource("2_fgf05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.24423)
+visible = true
 
 [node name="GUI" parent="." instance=ExtResource("3_r0gdb")]
 visible = false
@@ -35,9 +45,12 @@ wait_time = 10.0
 one_shot = true
 autostart = true
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_pl4l6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+[node name="KillZone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.20225)
 
-[node name="SpawnAsteriod" parent="." instance=ExtResource("4_021wc")]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.660492, -1.4796, 0)
+shape = SubResource("BoxShape3D_eyecc")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="KillZone" to="." method="_on_kill_zone_body_entered"]
