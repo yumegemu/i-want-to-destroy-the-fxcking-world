@@ -28,8 +28,8 @@ func ganaste():
 	if int(nroSiguienteNivel) + 1 > 3 :
 		print("entro ganaste")
 		get_tree().change_scene_to_file("res://Escenas/GanasteJuego.tscn")
-	
-	get_tree().change_scene_to_file("res://Escenas/GanasteJuego.tscn")
+		return null
+		
 	# Le suma 1 al nro que quedo y cambia al proximo nivel
 	get_tree().change_scene_to_file("res://Escenas/Level" + str(int(nroSiguienteNivel) + 1) + ".tscn")
 
