@@ -1,29 +1,23 @@
-[gd_scene load_steps=10 format=3 uid="uid://b1w158s5ssjlp"]
+[gd_scene load_steps=8 format=3 uid="uid://b1w158s5ssjlp"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_p2w56"]
 [ext_resource type="PackedScene" uid="uid://cxmjmjnk1xkqq" path="res://Assets/star-character.glb" id="2_2rfq5"]
-[ext_resource type="Animation" uid="uid://1i6oohah0ysr" path="res://Assets/star-spinning-loop.res" id="3_ehg5f"]
+[ext_resource type="Animation" uid="uid://d2l6in13qkg70" path="res://Assets/star-spinning-loop.res" id="3_ehg5f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q3i0k"]
 
-[sub_resource type="Animation" id="Animation_na152"]
-length = 0.001
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_agcgy"]
+animation = &"spin/star-spinning-loop"
 
-[sub_resource type="Animation" id="Animation_grv8s"]
-resource_name = "new_animation"
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ny2nd"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_agcgy")
+nodes/Animation/position = Vector2(106.667, 106.667)
+node_connections = [&"output", 0, &"Animation"]
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_nt8u5"]
-_data = {
-"RESET": SubResource("Animation_na152"),
-"new_animation": SubResource("Animation_grv8s")
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dibq7"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_leh5i"]
 _data = {
 "star-spinning-loop": ExtResource("3_ehg5f")
 }
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_qmn8u"]
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 collision_mask = 3
@@ -33,16 +27,13 @@ script = ExtResource("1_p2w56")
 shape = SubResource("BoxShape3D_q3i0k")
 
 [node name="star-character" parent="." instance=ExtResource("2_2rfq5")]
-transform = Transform3D(0.195, 0, 0, 0, 0.195, 0, 0, 0, 0.195, 0, 0, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="AnimationTree" type="AnimationTree" parent="star-character"]
+tree_root = SubResource("AnimationNodeBlendTree_ny2nd")
+anim_player = NodePath("../AnimationPlayer2")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="star-character"]
 libraries = {
-"": SubResource("AnimationLibrary_nt8u5"),
-"d": SubResource("AnimationLibrary_dibq7")
+"spin": SubResource("AnimationLibrary_leh5i")
 }
-autoplay = "d/star-spinning-loop"
-
-[node name="AnimationTree" type="AnimationTree" parent="star-character"]
-tree_root = SubResource("AnimationNodeBlendTree_qmn8u")
-advance_expression_base_node = NodePath("../AnimationPlayer2")
-anim_player = NodePath("../AnimationPlayer2")
