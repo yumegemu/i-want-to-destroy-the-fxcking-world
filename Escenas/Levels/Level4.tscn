@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8cy5pnrb5ofn"]
+[gd_scene load_steps=11 format=3 uid="uid://c8cy5pnrb5ofn"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_cfsda"]
 [ext_resource type="PackedScene" uid="uid://btf4gq484qkm" path="res://Escenas/GUI/GUI.tscn" id="2_jaw37"]
 [ext_resource type="PackedScene" uid="uid://b1w158s5ssjlp" path="res://Escenas/Player/Player.tscn" id="3_e2nmh"]
 [ext_resource type="PackedScene" uid="uid://dylo45gq8soql" path="res://Escenas/Spawn/SpawnRocket.tscn" id="4_2ibq7"]
 [ext_resource type="PackedScene" uid="uid://yddfm8w6ja5" path="res://Escenas/Earth.tscn" id="5_s4wnd"]
+[ext_resource type="PackedScene" uid="uid://pogikx21diuf" path="res://Escenas/bordes.tscn" id="6_6pfa8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmuwa"]
 
@@ -51,5 +52,15 @@ shape = SubResource("SphereShape3D_dh37i")
 
 [node name="earth" parent="." instance=ExtResource("5_s4wnd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, -100)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_right = 112.0
+offset_bottom = 69.0
+
+[node name="Bordes" parent="." instance=ExtResource("6_6pfa8")]
+collision_layer = 2
+collision_mask = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

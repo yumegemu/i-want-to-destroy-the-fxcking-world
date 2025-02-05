@@ -21,4 +21,8 @@ func _physics_process(_delta: float) -> void:
 	
 	# Llamamos a move_and_slide para aplicar el movimiento
 	if move_and_slide():
-		level.perdiste()
+		var className = get_last_slide_collision().get_collider().get_class()
+		if "RigidBody3D"  == className:
+			pass
+		else:
+			level.perdiste()
