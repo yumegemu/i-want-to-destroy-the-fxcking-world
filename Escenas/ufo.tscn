@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://he4xkmfc5qja"]
 
-[ext_resource type="Script" path="res://Scripts/Asteroide.gd" id="1_q5lr2"]
+[ext_resource type="Script" path="res://Scripts/Ufo.gd" id="1_u34rg"]
 [ext_resource type="PackedScene" uid="uid://bb5kyfwdi5xiq" path="res://Assets/ufo.glb" id="2_vbivm"]
 [ext_resource type="Animation" uid="uid://c5iegql4cha4j" path="res://Assets/ufo-spinning-loop.res" id="3_wqohf"]
 
@@ -24,10 +24,10 @@ _data = {
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 collision_layer = 2
-script = ExtResource("1_q5lr2")
+script = ExtResource("1_u34rg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.085)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.09)
 shape = SubResource("SphereShape3D_xplkn")
 
 [node name="ufo" parent="." instance=ExtResource("2_vbivm")]

@@ -42,4 +42,4 @@ func tiempo(tiempoRestante : int):
 		timer_label.text = "00:0" + str(tiempoRestante)
 
 func _on_restart_pressed() -> void:
-	get_tree().change_scene_to_file("res://Escenas/" + get_tree().current_scene.name + ".tscn")
+	get_tree().reload_current_scene()
