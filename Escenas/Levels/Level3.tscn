@@ -118,7 +118,7 @@ collision_mask = 1
 [node name="stars" type="Node3D" parent="."]
 
 [node name="Estrellas" type="GPUParticles3D" parent="stars"]
-transform = Transform3D(34.81, 0, 0, 0, 34.81, 0, 0, 0, 34.81, 0, 0, -544.518)
+transform = Transform3D(34.81, 0, 0, 0, 34.81, 0, 0, 0, 34.81, 0, 0, -311.759)
 amount = 3000
 lifetime = 10.78
 speed_scale = 1.5
