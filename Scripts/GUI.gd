@@ -32,19 +32,18 @@ func ganaste():
 	background.visible = true
 	ganaste_label.visible = true
 	
-	await get_tree().create_timer(2).timeout
-	
 	# Busca el nombre de la escena actual, le saca level y la extencion
-	var nroSiguienteNivel = get_tree().current_scene.name.replace("Level", "")
+	var sceneName = get_tree().current_scene.name
 	
-	await get_tree().create_timer(0.2).timeout
-	if int(nroSiguienteNivel) > 3 :
-		get_tree().change_scene_to_file("res://Escenas/GUI/final.tscn")
-		return
+	await get_tree().create_timer(2).timeout
 		
-	# Le suma 1 al nro que quedo y cambia al proximo nivel
-	get_tree().change_scene_to_file("res://Escenas/Levels/Level" + str(int(nroSiguienteNivel) + 1) + ".tscn")
-
+	# Pregunta si es el level 4 para finalizar
+	if sceneName == "Level4" :
+		get_tree().change_scene_to_file("res://Escenas/GUI/final.tscn")
+	else:
+		# Le suma 1 al nro que quedo y cambia al proximo nivel
+		get_tree().change_scene_to_file("res://Escenas/Levels/Level" + str(int(sceneName.replace("Level", "")) + 1) + ".tscn")
+	
 func tiempo(tiempoRestante : int):
 	if tiempoRestante > 9:
 		timer_label.text = "00:" + str(tiempoRestante)
