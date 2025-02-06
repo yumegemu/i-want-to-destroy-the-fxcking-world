@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://btf4gq484qkm"]
+[gd_scene load_steps=3 format=3 uid="uid://btf4gq484qkm"]
 
 [ext_resource type="Script" path="res://Scripts/GUI.gd" id="1_pi80e"]
+[ext_resource type="FontFile" uid="uid://curyo7ufmsixx" path="res://Assets/Fonts/The Bomb Sound.ttf" id="2_6234y"]
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -42,17 +43,28 @@ theme_override_constants/separation = 20
 [node name="Label" type="Label" parent="Background/Perdiste"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.729412, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_6234y")
 theme_override_font_sizes/font_size = 60
 text = "Perdiste"
 
 [node name="time_remainer" type="Label" parent="Background/Perdiste"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_6234y")
 theme_override_font_sizes/font_size = 25
 
 [node name="Restart" type="Button" parent="Background/Perdiste"]
 layout_mode = 2
-text = "Restart"
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 0.6, 0.501961, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_6234y")
+theme_override_font_sizes/font_size = 50
+text = "Volver a empezar"
+flat = true
 
 [node name="Ganaste" type="VBoxContainer" parent="Background"]
 layout_mode = 1
@@ -71,6 +83,8 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="Background/Ganaste"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_6234y")
 theme_override_font_sizes/font_size = 60
 text = "Ganaste"
 
@@ -88,6 +102,7 @@ theme_override_constants/separation = 20
 [node name="Label" type="Label" parent="Timer"]
 layout_mode = 2
 size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("2_6234y")
 theme_override_font_sizes/font_size = 60
 
 [connection signal="pressed" from="Background/Perdiste/Restart" to="." method="_on_restart_pressed"]

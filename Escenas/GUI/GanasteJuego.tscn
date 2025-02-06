@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://ditme1ur086jm"]
+[gd_scene load_steps=4 format=3 uid="uid://ditme1ur086jm"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_p5at3"]
+[ext_resource type="Texture2D" uid="uid://c3g4gy28wm17c" path="res://Assets/Imagenes/planeta quemado.png" id="2_icqr7"]
+[ext_resource type="FontFile" uid="uid://curyo7ufmsixx" path="res://Assets/Fonts/The Bomb Sound.ttf" id="3_kld1j"]
 
 [node name="GanasteJuego" type="Control"]
 layout_mode = 3
@@ -11,45 +13,50 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p5at3")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = 1.0
-offset_right = 2.0
-offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_icqr7")
+expand_mode = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -219.5
-offset_top = -38.5
-offset_right = 219.5
-offset_bottom = 38.5
+anchor_bottom = 1.0
+offset_left = -225.0
+offset_top = -150.0
+offset_right = 225.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("3_kld1j")
 theme_override_font_sizes/font_size = 38
-text = "GANASTE"
+text = "destruiste el mundo!"
 
-[node name="Volver" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="Volver" type="Button" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 50
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 0.6, 0.501961, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("3_kld1j")
+theme_override_font_sizes/font_size = 60
 text = "VOLVER AL INICIO"
+flat = true
 
-[connection signal="pressed" from="ColorRect/VBoxContainer/Volver" to="." method="_on_volver_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/Volver" to="." method="_on_volver_pressed"]
