@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dqb0gqlo8mchn"]
+[gd_scene load_steps=16 format=3 uid="uid://dqb0gqlo8mchn"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_ct7bg"]
 [ext_resource type="PackedScene" uid="uid://b1w158s5ssjlp" path="res://Escenas/Player/Player.tscn" id="1_pypsi"]
 [ext_resource type="PackedScene" uid="uid://db2spp1xtvw8v" path="res://Escenas/Spawn/SpawnSatelites.tscn" id="3_j4spy"]
 [ext_resource type="PackedScene" uid="uid://btf4gq484qkm" path="res://Escenas/GUI/GUI.tscn" id="4_wa7px"]
 [ext_resource type="PackedScene" uid="uid://yddfm8w6ja5" path="res://Escenas/Earth.tscn" id="5_gm3u6"]
+[ext_resource type="PackedScene" uid="uid://pogikx21diuf" path="res://Escenas/bordes.tscn" id="6_asl2o"]
+[ext_resource type="PackedScene" uid="uid://div0wmvkojqpq" path="res://Escenas/Spawn/SpawnUfo.tscn" id="7_5i1oq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmuwa"]
 
@@ -12,11 +14,54 @@
 sky_material = SubResource("ProceduralSkyMaterial_mmuwa")
 
 [sub_resource type="Environment" id="Environment_u205w"]
-background_mode = 2
+resource_local_to_scene = true
+background_mode = 1
+background_color = Color(0.137255, 0.184314, 0.266667, 1)
+background_energy_multiplier = 2.75
 sky = SubResource("Sky_rquai")
+ambient_light_source = 1
+ambient_light_color = Color(0.866421, 0.763758, 0.814788, 1)
+ambient_light_energy = 6.13
+fog_enabled = true
+fog_light_energy = 0.19
+fog_sky_affect = 0.0
+fog_height = -539.75
+fog_height_density = 0.75
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1789
+volumetric_fog_albedo = Color(0.190762, 0.190762, 0.190762, 1)
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_gi_inject = 0.83
+volumetric_fog_anisotropy = -0.04
+volumetric_fog_length = 12.0
+volumetric_fog_detail_spread = 4.92458
+volumetric_fog_ambient_inject = 0.75
+volumetric_fog_sky_affect = 0.0
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_r6gvh"]
+exposure_multiplier = 0.549
+dof_blur_far_enabled = true
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dh37i"]
 radius = 1.5
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_timyi"]
+emission_shape_offset = Vector3(0, 0, 1)
+emission_shape_scale = Vector3(3, 3, 3)
+emission_shape = 3
+emission_box_extents = Vector3(1.935, 1, 1)
+inherit_velocity_ratio = 1.0
+spread = 169.672
+gravity = Vector3(0, 0, 80)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0q34a"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 10.12
+
+[sub_resource type="QuadMesh" id="QuadMesh_ma0w6"]
+material = SubResource("StandardMaterial3D_0q34a")
+size = Vector2(0.5, 0.5)
 
 [node name="Level3" type="Node3D"]
 script = ExtResource("1_ct7bg")
@@ -25,18 +70,24 @@ script = ExtResource("1_ct7bg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+process_mode = 1
 environment = SubResource("Environment_u205w")
+camera_attributes = SubResource("CameraAttributesPractical_r6gvh")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 
 [node name="GUI" parent="." instance=ExtResource("4_wa7px")]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 30.0
 one_shot = true
 autostart = true
 
 [node name="SpawnSatellites" parent="." instance=ExtResource("3_j4spy")]
+
+[node name="SpawnSatellites2" parent="." instance=ExtResource("3_j4spy")]
+
+[node name="SpawnSatellites3" parent="." instance=ExtResource("3_j4spy")]
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_pypsi")]
 transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 0, -1, 0)
@@ -51,5 +102,30 @@ shape = SubResource("SphereShape3D_dh37i")
 
 [node name="earth" parent="." instance=ExtResource("5_gm3u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, -300)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_right = 112.0
+offset_bottom = 69.0
+
+[node name="Bordes" parent="." instance=ExtResource("6_asl2o")]
+collision_layer = 2
+collision_mask = 1
+
+[node name="SpawnUfo" parent="." instance=ExtResource("7_5i1oq")]
+
+[node name="stars" type="Node3D" parent="."]
+
+[node name="Estrellas" type="GPUParticles3D" parent="stars"]
+transform = Transform3D(34.81, 0, 0, 0, 34.81, 0, 0, 0, 34.81, 0, 0, -311.759)
+amount = 3000
+lifetime = 10.78
+speed_scale = 1.5
+randomness = 1.0
+fixed_fps = 60
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_timyi")
+draw_pass_1 = SubResource("QuadMesh_ma0w6")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

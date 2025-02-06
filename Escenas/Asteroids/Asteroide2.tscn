@@ -13,4 +13,4 @@ script = ExtResource("1_4yu8t")
 shape = SubResource("SphereShape3D_uhf38")
 
 [node name="asteroid2" parent="." instance=ExtResource("2_k25ik")]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, -0.975)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, -0.78)

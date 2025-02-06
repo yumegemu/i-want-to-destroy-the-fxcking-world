@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://wi72br5calbk"]
+
+[ext_resource type="PackedScene" uid="uid://bbtje3sgb6l4h" path="res://Assets/asteroid2.glb" id="1_huq6i"]
+[ext_resource type="Script" path="res://Scripts/Transparency/asteroid_2t.gd" id="2_k4yu4"]
+[ext_resource type="Texture2D" uid="uid://bc7g0fjf7sem0" path="res://Assets/asteroid2_texture.png" id="2_xbs0a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qal31"]
+resource_local_to_scene = true
+render_priority = 1
+transparency = 1
+depth_draw_mode = 2
+albedo_color = Color(1, 1, 1, 0.984314)
+albedo_texture = ExtResource("2_xbs0a")
+
+[sub_resource type="VisualShader" id="VisualShader_51cwh"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+
+
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ywsqj"]
+resource_local_to_scene = true
+render_priority = 0
+next_pass = SubResource("StandardMaterial3D_qal31")
+shader = SubResource("VisualShader_51cwh")
+
+[node name="asteroid2" instance=ExtResource("1_huq6i")]
+script = ExtResource("2_k4yu4")
+
+[node name="Cube_001" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_ywsqj")

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bd75ox54oy56u" path="res://Assets/asteroid3.glb" id="2_vr2e1"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_uhf38"]
+radius = 0.55
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 collision_layer = 2
