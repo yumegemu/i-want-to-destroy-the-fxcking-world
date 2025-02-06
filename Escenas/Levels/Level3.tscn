@@ -1,12 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://dqb0gqlo8mchn"]
+[gd_scene load_steps=18 format=3 uid="uid://dqb0gqlo8mchn"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_ct7bg"]
 [ext_resource type="PackedScene" uid="uid://b1w158s5ssjlp" path="res://Escenas/Player/Player.tscn" id="1_pypsi"]
+[ext_resource type="Script" path="res://Scripts/Camera_3d.gd" id="2_pcjn1"]
 [ext_resource type="PackedScene" uid="uid://db2spp1xtvw8v" path="res://Escenas/Spawn/SpawnSatelites.tscn" id="3_j4spy"]
 [ext_resource type="PackedScene" uid="uid://btf4gq484qkm" path="res://Escenas/GUI/GUI.tscn" id="4_wa7px"]
 [ext_resource type="PackedScene" uid="uid://yddfm8w6ja5" path="res://Escenas/Earth.tscn" id="5_gm3u6"]
 [ext_resource type="PackedScene" uid="uid://pogikx21diuf" path="res://Escenas/bordes.tscn" id="6_asl2o"]
 [ext_resource type="PackedScene" uid="uid://div0wmvkojqpq" path="res://Escenas/Spawn/SpawnUfo.tscn" id="7_5i1oq"]
+[ext_resource type="PackedScene" uid="uid://l11rty03kpya" path="res://Escenas/Asteroids/Asteroide1.tscn" id="8_4rlxn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmuwa"]
 
@@ -68,6 +70,7 @@ script = ExtResource("1_ct7bg")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+script = ExtResource("2_pcjn1")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 process_mode = 1
@@ -114,6 +117,7 @@ collision_layer = 2
 collision_mask = 1
 
 [node name="SpawnUfo" parent="." instance=ExtResource("7_5i1oq")]
+enemy = ExtResource("8_4rlxn")
 
 [node name="stars" type="Node3D" parent="."]
 

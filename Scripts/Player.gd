@@ -10,7 +10,7 @@ func _physics_process(_delta: float) -> void:
 	
 	# Obtener la dirección del input en X y Y
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	
+
 	# Crear la dirección del movimiento solo en X y Y
 	var direction := Vector3(input_dir.x, input_dir.y, 0).normalized()
 	
@@ -26,3 +26,6 @@ func _physics_process(_delta: float) -> void:
 			pass
 		else:
 			level.perdiste()
+
+func stop():
+	pass

@@ -5,6 +5,7 @@ extends Control
 @onready var background : Control = $Background
 @onready var timer_label : Control = $Timer/Label
 @onready var time_remainer_label : Control = $Background/Perdiste/time_remainer
+@onready var level : Node3D = $".."
 
 func start():
 	self.visible = true
@@ -50,4 +51,6 @@ func tiempo(tiempoRestante : int):
 		timer_label.text = "00:0" + str(tiempoRestante)
 
 func _on_restart_pressed() -> void:
+	level.delete_enemies()
+	await get_tree().create_timer(0.2).timeout
 	get_tree().reload_current_scene()
