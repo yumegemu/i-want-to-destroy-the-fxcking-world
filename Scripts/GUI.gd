@@ -27,19 +27,20 @@ func perdiste(time_remainer : int):
 
 func ganaste():
 	# Espera 7 segundos para cambiar de nivel
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(3).timeout
 	
 	background.visible = true
 	ganaste_label.visible = true
 	
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(2).timeout
 	
 	# Busca el nombre de la escena actual, le saca level y la extencion
 	var nroSiguienteNivel = get_tree().current_scene.name.replace("Level", "")
 	
-	if int(nroSiguienteNivel) + 1 > 4 :
+	await get_tree().create_timer(0.2).timeout
+	if int(nroSiguienteNivel) > 3 :
 		get_tree().change_scene_to_file("res://Escenas/GUI/final.tscn")
-		return null
+		return
 		
 	# Le suma 1 al nro que quedo y cambia al proximo nivel
 	get_tree().change_scene_to_file("res://Escenas/Levels/Level" + str(int(nroSiguienteNivel) + 1) + ".tscn")
