@@ -33,7 +33,7 @@ environment = SubResource("Environment_u205w")
 [node name="GUI" parent="." instance=ExtResource("2_jaw37")]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 30.0
 one_shot = true
 autostart = true
 
@@ -41,6 +41,8 @@ autostart = true
 transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 0, -1, 0)
 
 [node name="SpawnRocket" parent="." instance=ExtResource("4_2ibq7")]
+
+[node name="SpawnRocket2" parent="." instance=ExtResource("4_2ibq7")]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 collision_mask = 3

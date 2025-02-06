@@ -13,17 +13,25 @@ func start():
 	ganaste_label.visible = false
 
 func perdiste(time_remainer : int):
-	timer_label.visible = false
-	time_remainer_label.text = "Tenias que aguantar solo " + str(time_remainer) + " segundos mas :("
-	background.visible = true
-	perdiste_label.visible = true
+	if !ganaste_label.visible :
+		timer_label.visible = false
+		if time_remainer < 15:
+			time_remainer_label.text = "Tenias que esquivar solo un poco mas :("
+		elif time_remainer < 5:
+			time_remainer_label.text = "Ya estabas a nada :'D"
+		else:
+			time_remainer_label.text = "Mmmm ni ganas le estabas poniendo..."
+		background.visible = true
+		perdiste_label.visible = true
 
 func ganaste():
+	# Espera 7 segundos para cambiar de nivel
+	await get_tree().create_timer(5).timeout
+	
 	background.visible = true
 	ganaste_label.visible = true
 	
-	# Espera 3 segundos para cambiar de nivel
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(3).timeout
 	
 	# Busca el nombre de la escena actual, le saca level y la extencion
 	var nroSiguienteNivel = get_tree().current_scene.name.replace("Level", "")

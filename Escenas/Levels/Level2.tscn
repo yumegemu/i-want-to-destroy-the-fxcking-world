@@ -39,13 +39,15 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 30.0
 one_shot = true
 autostart = true
 
 [node name="SpawnUfo" parent="." instance=ExtResource("4_fhcci")]
 
 [node name="SpawnAsteriod" parent="." instance=ExtResource("5_brkc5")]
+
+[node name="SpawnAsteriod2" parent="." instance=ExtResource("5_brkc5")]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 collision_mask = 3
