@@ -38,7 +38,7 @@ func ganaste():
 	var nroSiguienteNivel = get_tree().current_scene.name.replace("Level", "")
 	
 	if int(nroSiguienteNivel) + 1 > 4 :
-		get_tree().change_scene_to_file("res://Escenas/GUI/GanasteJuego.tscn")
+		get_tree().change_scene_to_file("res://Escenas/GUI/final.tscn")
 		return null
 		
 	# Le suma 1 al nro que quedo y cambia al proximo nivel
