@@ -131,4 +131,6 @@ transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_qd40v")
 draw_pass_1 = SubResource("QuadMesh_cpbvo")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

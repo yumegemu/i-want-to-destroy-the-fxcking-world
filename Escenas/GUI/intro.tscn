@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2wusb5882y74"]
+[gd_scene load_steps=5 format=3 uid="uid://c2wusb5882y74"]
 
 [ext_resource type="VideoStream" path="res://Assets/Videos/INTRO.ogv" id="1_bsvne"]
 [ext_resource type="Script" path="res://Scripts/videoPlayerIntro.gd" id="2_fdb6k"]
 [ext_resource type="FontFile" uid="uid://curyo7ufmsixx" path="res://Assets/Fonts/The Bomb Sound.ttf" id="3_ejbug"]
+[ext_resource type="AudioStream" uid="uid://0gkm5p2m0squ" path="res://Assets/Music/IntroMusic.ogg" id="4_ui8hv"]
 
 [node name="VIDEOPLAYER" type="Control"]
 layout_mode = 3
@@ -48,6 +49,10 @@ tab_size = 6
 wait_time = 3.0
 one_shot = true
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ui8hv")
+autoplay = true
 
 [connection signal="finished" from="VideoStreamPlayer" to="VideoStreamPlayer" method="_on_finished"]
 [connection signal="timeout" from="VideoStreamPlayer/RichTextLabel/Timer" to="VideoStreamPlayer" method="_on_timer_timeout"]
