@@ -1,5 +1,7 @@
 extends Spawner
 
+@export() var timer :float = 0
+
 var enemy2 = preload("res://Escenas/Asteroids/Asteroide2.tscn")
 var enemy3 = preload("res://Escenas/Asteroids/Asteroide3.tscn")
 var nivelName = ""
@@ -7,6 +9,7 @@ var nivelName = ""
 func _ready():
 	enemy = preload("res://Escenas/Asteroids/Asteroide1.tscn")
 	var nivelName = get_tree().current_scene.name
+	timer_spawn = timer
 
 func _on_timer_spawn_timeout() -> void:
 	if nivelName == "Level2":

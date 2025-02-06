@@ -46,8 +46,13 @@ autostart = true
 [node name="SpawnUfo" parent="." instance=ExtResource("4_fhcci")]
 
 [node name="SpawnAsteriod" parent="." instance=ExtResource("5_brkc5")]
+timer = 1.0
 
 [node name="SpawnAsteriod2" parent="." instance=ExtResource("5_brkc5")]
+timer = 1.0
+
+[node name="SpawnAsteriod3" parent="." instance=ExtResource("5_brkc5")]
+timer = 1.5
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 collision_mask = 3

@@ -63,6 +63,10 @@ one_shot = true
 autostart = true
 
 [node name="SpawnAsteriod" parent="." instance=ExtResource("4_021wc")]
+timer = 1.0
+
+[node name="SpawnAsteriod2" parent="." instance=ExtResource("4_021wc")]
+timer = 1.5
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 collision_mask = 3
