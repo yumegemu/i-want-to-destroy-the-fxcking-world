@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ditme1ur086jm"]
+[gd_scene load_steps=5 format=3 uid="uid://ditme1ur086jm"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_p5at3"]
 [ext_resource type="Texture2D" uid="uid://c3g4gy28wm17c" path="res://Assets/Imagenes/planeta quemado.png" id="2_icqr7"]
 [ext_resource type="FontFile" uid="uid://curyo7ufmsixx" path="res://Assets/Fonts/The Bomb Sound.ttf" id="3_kld1j"]
+[ext_resource type="AudioStream" uid="uid://c7erlar3i30vu" path="res://Assets/Music/Space.ogg" id="4_p4xbu"]
 
 [node name="GanasteJuego" type="Control"]
 layout_mode = 3
@@ -58,5 +59,9 @@ theme_override_fonts/font = ExtResource("3_kld1j")
 theme_override_font_sizes/font_size = 60
 text = "VOLVER AL INICIO"
 flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_p4xbu")
+autoplay = true
 
 [connection signal="pressed" from="TextureRect/VBoxContainer/Volver" to="." method="_on_volver_pressed"]

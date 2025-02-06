@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxsomaprdyvf2"]
+[gd_scene load_steps=6 format=3 uid="uid://dxsomaprdyvf2"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_ldhix"]
 [ext_resource type="FontFile" uid="uid://curyo7ufmsixx" path="res://Assets/Fonts/The Bomb Sound.ttf" id="2_rowtj"]
 [ext_resource type="Texture2D" uid="uid://thi4jwemhmgb" path="res://Assets/Imagenes/pantalla inicio.png" id="2_turiv"]
+[ext_resource type="AudioStream" uid="uid://c7erlar3i30vu" path="res://Assets/Music/Space.ogg" id="4_xy32y"]
 
 [sub_resource type="Theme" id="Theme_g3o2q"]
 default_font = ExtResource("2_rowtj")
@@ -92,6 +93,10 @@ offset_right = 2.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_xy32y")
+autoplay = true
 
 [connection signal="pressed" from="TextureRect/VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
 [connection signal="pressed" from="TextureRect/VBoxContainer/Opciones" to="." method="_on_opciones_pressed"]

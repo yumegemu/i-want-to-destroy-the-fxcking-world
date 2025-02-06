@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnvsdlw8wxrx0"]
+[gd_scene load_steps=5 format=3 uid="uid://dnvsdlw8wxrx0"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_p8061"]
 [ext_resource type="Texture2D" uid="uid://b3677gibi71eh" path="res://Assets/Imagenes/pantalla inicio vacia.png" id="2_8bcpv"]
 [ext_resource type="FontFile" uid="uid://curyo7ufmsixx" path="res://Assets/Fonts/The Bomb Sound.ttf" id="3_ple2r"]
+[ext_resource type="AudioStream" uid="uid://c7erlar3i30vu" path="res://Assets/Music/Space.ogg" id="4_wp3af"]
 
 [node name="Opciones" type="Control"]
 layout_mode = 3
@@ -67,5 +68,9 @@ theme_override_fonts/font = ExtResource("3_ple2r")
 theme_override_font_sizes/font_size = 50
 text = "atras"
 flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wp3af")
+autoplay = true
 
 [connection signal="pressed" from="TextureRect/VBoxContainer/Atras" to="." method="_on_atras_pressed"]
