@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdt4rjrssp3yg"]
+
+[ext_resource type="VideoStream" path="res://Assets/Videos/INTRO.ogv" id="1_bsvne"]
+[ext_resource type="Script" path="res://Scripts/videoPlayerIntro.gd" id="2_fdb6k"]
+[ext_resource type="FontFile" uid="uid://curyo7ufmsixx" path="res://Assets/Fonts/The Bomb Sound.ttf" id="3_ejbug"]
+
+[node name="VIDEOPLAYER" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_bsvne")
+autoplay = true
+expand = true
+script = ExtResource("2_fdb6k")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VideoStreamPlayer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.5
+offset_top = -40.0
+offset_right = 140.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("3_ejbug")
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "Presiona cualquier tecla para omitir."
+fit_content = true
+autowrap_mode = 0
+tab_size = 6
+
+[node name="Timer" type="Timer" parent="VideoStreamPlayer/RichTextLabel"]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="VideoStreamPlayer" method="_on_finished"]
+[connection signal="timeout" from="VideoStreamPlayer/RichTextLabel/Timer" to="VideoStreamPlayer" method="_on_timer_timeout"]
