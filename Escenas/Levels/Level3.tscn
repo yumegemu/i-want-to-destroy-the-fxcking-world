@@ -68,6 +68,9 @@ size = Vector2(0.5, 0.5)
 [node name="Level3" type="Node3D"]
 script = ExtResource("1_ct7bg")
 
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_pypsi")]
+transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 0, -1, 0)
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 script = ExtResource("2_pcjn1")
@@ -91,9 +94,6 @@ autostart = true
 [node name="SpawnSatellites2" parent="." instance=ExtResource("3_j4spy")]
 
 [node name="SpawnSatellites3" parent="." instance=ExtResource("3_j4spy")]
-
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_pypsi")]
-transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 0, -1, 0)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 collision_mask = 3

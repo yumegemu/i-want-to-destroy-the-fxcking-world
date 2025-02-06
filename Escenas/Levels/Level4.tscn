@@ -66,6 +66,9 @@ size = Vector2(0.5, 0.5)
 [node name="Level4" type="Node3D"]
 script = ExtResource("1_cfsda")
 
+[node name="CharacterBody3D" parent="." instance=ExtResource("3_e2nmh")]
+transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 0, -1, 0)
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 script = ExtResource("2_s2q3r")
@@ -83,9 +86,6 @@ camera_attributes = SubResource("CameraAttributesPractical_r6gvh")
 wait_time = 30.0
 one_shot = true
 autostart = true
-
-[node name="CharacterBody3D" parent="." instance=ExtResource("3_e2nmh")]
-transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 0, -1, 0)
 
 [node name="SpawnRocket" parent="." instance=ExtResource("4_2ibq7")]
 
@@ -128,7 +128,7 @@ collision_mask = 1
 transform = Transform3D(34.81, 0, 0, 0, 34.81, 0, 0, 0, 34.81, 0, 0, -544.518)
 amount = 3000
 lifetime = 10.78
-speed_scale = 3.0
+speed_scale = 1.5
 randomness = 1.0
 fixed_fps = 60
 transform_align = 1
