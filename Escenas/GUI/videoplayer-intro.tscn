@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2wusb5882y74"]
+
+[ext_resource type="VideoStream" path="res://Assets/Videos/INTRO.ogv" id="1_bsvne"]
+[ext_resource type="Script" path="res://Scripts/video_stream_player-intro.gd" id="2_fdb6k"]
+
+[node name="VIDEOPLAYER" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_bsvne")
+autoplay = true
+expand = true
+script = ExtResource("2_fdb6k")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VideoStreamPlayer"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -281.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+bbcode_enabled = true
+text = "Presiona cualquier tecla para omitir."
+fit_content = true
+autowrap_mode = 0
+tab_size = 6
+
+[node name="Timer" type="Timer" parent="VideoStreamPlayer/RichTextLabel"]
+wait_time = 3.0
+one_shot = true
+autostart = true
