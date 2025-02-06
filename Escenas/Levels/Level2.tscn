@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://bwicjtt7hgu6v"]
+[gd_scene load_steps=18 format=3 uid="uid://bwicjtt7hgu6v"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_7i4iw"]
 [ext_resource type="PackedScene" uid="uid://b1w158s5ssjlp" path="res://Escenas/Player/Player.tscn" id="1_vcahg"]
 [ext_resource type="PackedScene" uid="uid://btf4gq484qkm" path="res://Escenas/GUI/GUI.tscn" id="3_0r16j"]
+[ext_resource type="Script" path="res://Scripts/Camera_3d.gd" id="3_e2d3d"]
 [ext_resource type="PackedScene" uid="uid://div0wmvkojqpq" path="res://Escenas/Spawn/SpawnUfo.tscn" id="4_fhcci"]
 [ext_resource type="PackedScene" uid="uid://sgrd811hlmw2" path="res://Escenas/Spawn/SpawnAsteroid.tscn" id="5_brkc5"]
+[ext_resource type="PackedScene" uid="uid://l11rty03kpya" path="res://Escenas/Asteroids/Asteroide1.tscn" id="5_l77y8"]
 [ext_resource type="PackedScene" uid="uid://yddfm8w6ja5" path="res://Escenas/Earth.tscn" id="6_14wkw"]
 [ext_resource type="PackedScene" uid="uid://pogikx21diuf" path="res://Escenas/bordes.tscn" id="7_1exhr"]
 
@@ -71,6 +73,7 @@ transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+script = ExtResource("3_e2d3d")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 process_mode = 1
@@ -89,6 +92,7 @@ one_shot = true
 autostart = true
 
 [node name="SpawnUfo" parent="." instance=ExtResource("4_fhcci")]
+enemy = ExtResource("5_l77y8")
 
 [node name="SpawnAsteriod" parent="." instance=ExtResource("5_brkc5")]
 timer = 1.0

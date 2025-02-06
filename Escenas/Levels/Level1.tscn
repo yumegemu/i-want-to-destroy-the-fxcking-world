@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://c7c17djtk22in"]
+[gd_scene load_steps=16 format=3 uid="uid://c7c17djtk22in"]
 
 [ext_resource type="PackedScene" uid="uid://b1w158s5ssjlp" path="res://Escenas/Player/Player.tscn" id="1_pl4l6"]
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_tj28w"]
+[ext_resource type="Script" path="res://Scripts/Camera_3d.gd" id="3_3sl8a"]
 [ext_resource type="PackedScene" uid="uid://btf4gq484qkm" path="res://Escenas/GUI/GUI.tscn" id="3_r0gdb"]
 [ext_resource type="PackedScene" uid="uid://sgrd811hlmw2" path="res://Escenas/Spawn/SpawnAsteroid.tscn" id="4_021wc"]
 [ext_resource type="PackedScene" uid="uid://yddfm8w6ja5" path="res://Escenas/Earth.tscn" id="5_elpnk"]
@@ -71,6 +72,7 @@ transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+script = ExtResource("3_3sl8a")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 process_mode = 1
