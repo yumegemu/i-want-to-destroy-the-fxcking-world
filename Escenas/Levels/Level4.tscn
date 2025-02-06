@@ -135,4 +135,7 @@ transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_vsnru")
 draw_pass_1 = SubResource("QuadMesh_e2ovs")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

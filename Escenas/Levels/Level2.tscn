@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bwicjtt7hgu6v"]
+[gd_scene load_steps=19 format=3 uid="uid://bwicjtt7hgu6v"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_7i4iw"]
 [ext_resource type="PackedScene" uid="uid://b1w158s5ssjlp" path="res://Escenas/Player/Player.tscn" id="1_vcahg"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://l11rty03kpya" path="res://Escenas/Asteroids/Asteroide1.tscn" id="5_l77y8"]
 [ext_resource type="PackedScene" uid="uid://yddfm8w6ja5" path="res://Escenas/Earth.tscn" id="6_14wkw"]
 [ext_resource type="PackedScene" uid="uid://pogikx21diuf" path="res://Escenas/bordes.tscn" id="7_1exhr"]
+[ext_resource type="AudioStream" uid="uid://blna6ic04wv4e" path="res://Assets/Music/LevelMusic.ogg" id="10_wj5j2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmuwa"]
 
@@ -135,5 +136,9 @@ fixed_fps = 60
 transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_uvcwv")
 draw_pass_1 = SubResource("QuadMesh_a0xmw")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_wj5j2")
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
