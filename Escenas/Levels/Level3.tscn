@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dqb0gqlo8mchn"]
+[gd_scene load_steps=19 format=3 uid="uid://dqb0gqlo8mchn"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_ct7bg"]
 [ext_resource type="PackedScene" uid="uid://b1w158s5ssjlp" path="res://Escenas/Player/Player.tscn" id="1_pypsi"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://yddfm8w6ja5" path="res://Escenas/Earth.tscn" id="5_gm3u6"]
 [ext_resource type="PackedScene" uid="uid://pogikx21diuf" path="res://Escenas/bordes.tscn" id="6_asl2o"]
 [ext_resource type="PackedScene" uid="uid://div0wmvkojqpq" path="res://Escenas/Spawn/SpawnUfo.tscn" id="7_5i1oq"]
-[ext_resource type="PackedScene" uid="uid://l11rty03kpya" path="res://Escenas/Asteroids/Asteroide1.tscn" id="8_4rlxn"]
 [ext_resource type="AudioStream" uid="uid://blna6ic04wv4e" path="res://Assets/Music/LevelMusic.ogg" id="10_fw7y1"]
 [ext_resource type="AudioStream" uid="uid://qr0ubdw2pxtn" path="res://Assets/Fx/Movement.ogg" id="11_yo4e4"]
 
@@ -87,7 +86,7 @@ camera_attributes = SubResource("CameraAttributesPractical_r6gvh")
 [node name="GUI" parent="." instance=ExtResource("4_wa7px")]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 27.0
 one_shot = true
 autostart = true
 
@@ -100,6 +99,12 @@ autostart = true
 [node name="SpawnSatellites4" parent="." instance=ExtResource("3_j4spy")]
 
 [node name="SpawnSatellites5" parent="." instance=ExtResource("3_j4spy")]
+
+[node name="SpawnSatellites6" parent="." instance=ExtResource("3_j4spy")]
+
+[node name="SpawnSatellites7" parent="." instance=ExtResource("3_j4spy")]
+
+[node name="SpawnSatellites8" parent="." instance=ExtResource("3_j4spy")]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 collision_mask = 3
@@ -123,10 +128,8 @@ collision_layer = 2
 collision_mask = 1
 
 [node name="SpawnUfo" parent="." instance=ExtResource("7_5i1oq")]
-enemy = ExtResource("8_4rlxn")
 
 [node name="SpawnUfo2" parent="." instance=ExtResource("7_5i1oq")]
-enemy = ExtResource("8_4rlxn")
 
 [node name="stars" type="Node3D" parent="."]
 

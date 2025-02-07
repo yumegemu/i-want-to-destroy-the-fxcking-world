@@ -33,9 +33,7 @@ func detener_enemigos():
 			hijo.stop()
 
 func _on_timer_timeout() -> void:
-	
 	stop_spawners()
-	
 	await get_tree().create_timer(4).timeout
 	gui.ganaste()
 
@@ -47,11 +45,11 @@ func delete_enemies():
 			hijo.queue_free()
 
 func _physics_process(_delta: float) -> void:
-	gui.tiempo(timer.time_left + 1)
 	if perdio:
 		if Input.is_anything_pressed():
-			await get_tree().create_timer(0.3).timeout
-			get_tree().change_scene_to_file("res://Escenas/Levels/"+ levelName + ".tscn")
+			await get_tree().create_timer(0.5).timeout
+			if get_tree() != null:
+				get_tree().change_scene_to_file("res://Escenas/Levels/"+ levelName + ".tscn")
 
 
 func stop_spawners():
@@ -81,6 +79,9 @@ func stop_spawners():
 		$SpawnSatellites3/TimerSpawn.stop()
 		$SpawnSatellites4/TimerSpawn.stop()
 		$SpawnSatellites5/TimerSpawn.stop()
+		$SpawnSatellites6/TimerSpawn.stop()
+		$SpawnSatellites7/TimerSpawn.stop()
+		$SpawnSatellites8/TimerSpawn.stop()
 		$SpawnUfo/TimerSpawn.stop()
 		$SpawnUfo2/TimerSpawn.stop()
 	elif "Level4" == sceneName:

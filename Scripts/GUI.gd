@@ -3,7 +3,6 @@ extends Control
 @onready var perdiste_label : Control = $Background/Perdiste
 @onready var ganaste_label : Control = $Background/Ganaste
 @onready var background : Control = $Background
-@onready var timer_label : Control = $Timer/Label
 @onready var time_remainer_label : Control = $Background/Perdiste/time_remainer
 @onready var level : Node3D = $".."
 var yaPerdio : bool = false
@@ -23,8 +22,8 @@ func perdiste(time_remainer : int):
 		
 		$AudioStreamPlayer2.play()
 		await get_tree().create_timer(0.1).timeout
-		timer_label.visible = false
-		
+		$Background/Restart/PrecioneCualquier.visible = true
+
 		if time_remainer < 20 and time_remainer >= 10:
 			time_remainer_label.text = "Tenias que esquivar solo un poco mas :("
 		elif time_remainer < 10:
@@ -36,6 +35,7 @@ func perdiste(time_remainer : int):
 
 func ganaste():
 	# Espera 1 segundos para mostrar cartel de ganaste
+	$Background/Restart/PrecioneCualquier.visible = false
 	await get_tree().create_timer(1).timeout
 	$AudioStreamPlayer.play()
 	background.visible = true
@@ -58,8 +58,3 @@ func ganaste():
 		# Le suma 1 al nro que quedo y cambia al proximo nivel
 		get_tree().change_scene_to_file("res://Escenas/Levels/Level" + str(int(sceneName.replace("Level", "")) + 1) + ".tscn")
 	
-func tiempo(tiempoRestante : int):
-	if tiempoRestante > 9:
-		timer_label.text = "00:" + str(tiempoRestante)
-	else:
-		timer_label.text = "00:0" + str(tiempoRestante)
