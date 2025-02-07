@@ -114,12 +114,6 @@ timer = 1.5
 [node name="SpawnAsteriod6" parent="." instance=ExtResource("5_brkc5")]
 timer = 1.5
 
-[node name="SpawnAsteriod7" parent="." instance=ExtResource("5_brkc5")]
-timer = 1.5
-
-[node name="SpawnAsteriod8" parent="." instance=ExtResource("5_brkc5")]
-timer = 1.5
-
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 collision_mask = 3
 gravity_scale = 0.0

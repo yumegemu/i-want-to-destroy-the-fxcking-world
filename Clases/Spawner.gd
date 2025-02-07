@@ -20,7 +20,7 @@ func spaw_enemy():
 
 	randomSinRepeticion()
 
-	newEnemy.position = Vector3(x1,y1,-13)
+	newEnemy.position = Vector3(x1,y1,-17)
 	get_parent().call_deferred("add_child", newEnemy)
 	
 

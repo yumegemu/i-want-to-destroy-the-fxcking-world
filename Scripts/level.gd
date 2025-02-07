@@ -70,7 +70,6 @@ func stop_spawners():
 		$SpawnAsteriod5/TimerSpawn.stop()
 		$SpawnAsteriod6/TimerSpawn.stop()
 		$SpawnAsteriod7/TimerSpawn.stop()
-		$SpawnAsteriod8/TimerSpawn.stop()
 		$SpawnUfo/TimerSpawn.stop()
 		$SpawnUfo2/TimerSpawn.stop()
 	elif "Level3" == sceneName:

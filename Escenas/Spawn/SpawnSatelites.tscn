@@ -8,6 +8,7 @@ script = ExtResource("1_80cwr")
 
 [node name="TimerSpawn" type="Timer" parent="."]
 process_callback = 0
+wait_time = 1.25
 autostart = true
 
 [connection signal="timeout" from="TimerSpawn" to="." method="_on_timer_spawn_timeout"]
