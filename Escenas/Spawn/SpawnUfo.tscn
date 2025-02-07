@@ -5,7 +5,6 @@
 [node name="SpawnUfo" type="Node3D"]
 visible = false
 script = ExtResource("1_6kju1")
-enemy = null
 
 [node name="TimerSpawn" type="Timer" parent="."]
 process_callback = 0

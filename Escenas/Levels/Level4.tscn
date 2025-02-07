@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c8cy5pnrb5ofn"]
+[gd_scene load_steps=18 format=3 uid="uid://c8cy5pnrb5ofn"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_cfsda"]
 [ext_resource type="PackedScene" uid="uid://btf4gq484qkm" path="res://Escenas/GUI/GUI.tscn" id="2_jaw37"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://yddfm8w6ja5" path="res://Escenas/Earth.tscn" id="5_s4wnd"]
 [ext_resource type="PackedScene" uid="uid://pogikx21diuf" path="res://Escenas/bordes.tscn" id="6_6pfa8"]
 [ext_resource type="AudioStream" uid="uid://b5ly8hcjygjcd" path="res://Assets/Music/LevelMusicFinal.ogg" id="8_utdpy"]
+[ext_resource type="AudioStream" uid="uid://qr0ubdw2pxtn" path="res://Assets/Fx/Movement.ogg" id="9_ukdjg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmuwa"]
 
@@ -84,7 +85,7 @@ camera_attributes = SubResource("CameraAttributesPractical_r6gvh")
 [node name="GUI" parent="." instance=ExtResource("2_jaw37")]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 27.0
 one_shot = true
 autostart = true
 
@@ -101,6 +102,20 @@ autostart = true
 [node name="SpawnRocket6" parent="." instance=ExtResource("4_2ibq7")]
 
 [node name="SpawnRocket7" parent="." instance=ExtResource("4_2ibq7")]
+
+[node name="SpawnRocket8" parent="." instance=ExtResource("4_2ibq7")]
+
+[node name="SpawnRocket9" parent="." instance=ExtResource("4_2ibq7")]
+
+[node name="SpawnRocket10" parent="." instance=ExtResource("4_2ibq7")]
+
+[node name="SpawnRocket11" parent="." instance=ExtResource("4_2ibq7")]
+
+[node name="SpawnRocket12" parent="." instance=ExtResource("4_2ibq7")]
+
+[node name="SpawnRocket13" parent="." instance=ExtResource("4_2ibq7")]
+
+[node name="SpawnRocket14" parent="." instance=ExtResource("4_2ibq7")]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 collision_mask = 3
@@ -139,5 +154,9 @@ draw_pass_1 = SubResource("QuadMesh_e2ovs")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_utdpy")
 autoplay = true
+
+[node name="Movimiento" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_ukdjg")
+volume_db = -3.759
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

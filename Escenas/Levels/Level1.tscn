@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c7c17djtk22in"]
+[gd_scene load_steps=18 format=3 uid="uid://c7c17djtk22in"]
 
 [ext_resource type="PackedScene" uid="uid://b1w158s5ssjlp" path="res://Escenas/Player/Player.tscn" id="1_pl4l6"]
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_tj28w"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://yddfm8w6ja5" path="res://Escenas/Earth.tscn" id="5_elpnk"]
 [ext_resource type="PackedScene" uid="uid://pogikx21diuf" path="res://Escenas/bordes.tscn" id="6_p8wi7"]
 [ext_resource type="AudioStream" uid="uid://blna6ic04wv4e" path="res://Assets/Music/LevelMusic.ogg" id="8_dwr0c"]
+[ext_resource type="AudioStream" uid="uid://qr0ubdw2pxtn" path="res://Assets/Fx/Movement.ogg" id="9_71wwa"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmuwa"]
 
@@ -88,7 +89,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 27.0
 one_shot = true
 autostart = true
 
@@ -96,6 +97,18 @@ autostart = true
 timer = 1.0
 
 [node name="SpawnAsteriod2" parent="." instance=ExtResource("4_021wc")]
+timer = 1.5
+
+[node name="SpawnAsteriod3" parent="." instance=ExtResource("4_021wc")]
+timer = 1.5
+
+[node name="SpawnAsteriod4" parent="." instance=ExtResource("4_021wc")]
+timer = 1.5
+
+[node name="SpawnAsteriod5" parent="." instance=ExtResource("4_021wc")]
+timer = 1.5
+
+[node name="SpawnAsteriod6" parent="." instance=ExtResource("4_021wc")]
 timer = 1.5
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
@@ -135,5 +148,9 @@ draw_pass_1 = SubResource("QuadMesh_cpbvo")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_dwr0c")
 autoplay = true
+
+[node name="Movimiento" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_71wwa")
+volume_db = -3.759
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

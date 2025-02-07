@@ -14,7 +14,9 @@ func _physics_process(delta: float) -> void:
 			if "CharacterBody3D"  == className:
 				pass
 			else:
+				get_parent().get_node("Movimiento").play()
 				self.queue_free()
 
 func stop():
 	stopa = true
+	

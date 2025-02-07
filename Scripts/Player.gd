@@ -4,7 +4,7 @@ const velocidad = 5.0
 
 @onready var level : Node3D = $".."
 
-	
+
 func _physics_process(_delta: float) -> void:
 	velocity = Vector3.ZERO
 	
@@ -19,13 +19,14 @@ func _physics_process(_delta: float) -> void:
 		velocity.x = direction.x * velocidad
 		velocity.y = -direction.y * velocidad
 	
-	# Llamamos a move_and_slide para aplicar el movimiento
-	if move_and_slide():
-		var className = get_last_slide_collision().get_collider().get_class()
-		if "RigidBody3D"  == className:
-			pass
-		else:
-			level.perdiste()
+	if !$"..".perdio:
+		# Llamamos a move_and_slide para aplicar el movimiento
+		if move_and_slide():
+			var className = get_last_slide_collision().get_collider().get_class()
+			if "RigidBody3D"  == className:
+				pass
+			else:
+				level.perdiste()
 
 func stop():
 	pass

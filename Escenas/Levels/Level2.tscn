@@ -6,10 +6,10 @@
 [ext_resource type="Script" path="res://Scripts/Camera_3d.gd" id="3_e2d3d"]
 [ext_resource type="PackedScene" uid="uid://div0wmvkojqpq" path="res://Escenas/Spawn/SpawnUfo.tscn" id="4_fhcci"]
 [ext_resource type="PackedScene" uid="uid://sgrd811hlmw2" path="res://Escenas/Spawn/SpawnAsteroid.tscn" id="5_brkc5"]
-[ext_resource type="PackedScene" uid="uid://l11rty03kpya" path="res://Escenas/Asteroids/Asteroide1.tscn" id="5_l77y8"]
 [ext_resource type="PackedScene" uid="uid://yddfm8w6ja5" path="res://Escenas/Earth.tscn" id="6_14wkw"]
 [ext_resource type="PackedScene" uid="uid://pogikx21diuf" path="res://Escenas/bordes.tscn" id="7_1exhr"]
 [ext_resource type="AudioStream" uid="uid://blna6ic04wv4e" path="res://Assets/Music/LevelMusic.ogg" id="10_wj5j2"]
+[ext_resource type="AudioStream" uid="uid://qr0ubdw2pxtn" path="res://Assets/Fx/Movement.ogg" id="11_jvd7s"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmuwa"]
 
@@ -88,12 +88,13 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 27.0
 one_shot = true
 autostart = true
 
 [node name="SpawnUfo" parent="." instance=ExtResource("4_fhcci")]
-enemy = ExtResource("5_l77y8")
+
+[node name="SpawnUfo2" parent="." instance=ExtResource("4_fhcci")]
 
 [node name="SpawnAsteriod" parent="." instance=ExtResource("5_brkc5")]
 timer = 1.0
@@ -102,6 +103,21 @@ timer = 1.0
 timer = 1.0
 
 [node name="SpawnAsteriod3" parent="." instance=ExtResource("5_brkc5")]
+timer = 1.5
+
+[node name="SpawnAsteriod4" parent="." instance=ExtResource("5_brkc5")]
+timer = 1.5
+
+[node name="SpawnAsteriod5" parent="." instance=ExtResource("5_brkc5")]
+timer = 1.5
+
+[node name="SpawnAsteriod6" parent="." instance=ExtResource("5_brkc5")]
+timer = 1.5
+
+[node name="SpawnAsteriod7" parent="." instance=ExtResource("5_brkc5")]
+timer = 1.5
+
+[node name="SpawnAsteriod8" parent="." instance=ExtResource("5_brkc5")]
 timer = 1.5
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
@@ -140,5 +156,9 @@ draw_pass_1 = SubResource("QuadMesh_a0xmw")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_wj5j2")
 autoplay = true
+
+[node name="Movimiento" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_jvd7s")
+volume_db = -3.759
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

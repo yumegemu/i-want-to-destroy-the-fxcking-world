@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="i-want-to-destroy-the-fxcking-world"
+config/version="0.1.0.0"
 run/main_scene="res://Escenas/GUI/yumegemu-intro.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Assets/Imagenes/icon.png"
 
 [input]
 
@@ -54,8 +55,3 @@ ui_down={
 
 3d_physics/layer_1="Player"
 3d_physics/layer_2="Enemigo"
-
-[rendering]
-
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"

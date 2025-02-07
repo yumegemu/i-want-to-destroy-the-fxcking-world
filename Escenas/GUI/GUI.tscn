@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://btf4gq484qkm"]
+[gd_scene load_steps=5 format=3 uid="uid://btf4gq484qkm"]
 
 [ext_resource type="Script" path="res://Scripts/GUI.gd" id="1_pi80e"]
 [ext_resource type="FontFile" uid="uid://curyo7ufmsixx" path="res://Assets/Fonts/The Bomb Sound.ttf" id="2_6234y"]
+[ext_resource type="AudioStream" uid="uid://b7n3863cxviwd" path="res://Assets/Fx/Win.ogg" id="3_041fy"]
+[ext_resource type="AudioStream" uid="uid://cjo6tw54rk0ts" path="res://Assets/Fx/Hit.ogg" id="4_ga63o"]
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -56,16 +58,6 @@ theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("2_6234y")
 theme_override_font_sizes/font_size = 25
 
-[node name="Restart" type="Button" parent="Background/Perdiste"]
-layout_mode = 2
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(1, 0.6, 0.501961, 1)
-theme_override_constants/outline_size = 20
-theme_override_fonts/font = ExtResource("2_6234y")
-theme_override_font_sizes/font_size = 50
-text = "Volver a empezar"
-flat = true
-
 [node name="Ganaste" type="VBoxContainer" parent="Background"]
 layout_mode = 1
 anchors_preset = 8
@@ -86,7 +78,46 @@ size_flags_horizontal = 4
 theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("2_6234y")
 theme_override_font_sizes/font_size = 60
-text = "Ganaste"
+text = "Ganaste
+"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Background/Ganaste"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_6234y")
+theme_override_font_sizes/font_size = 30
+text = "Cargando proximo nivel...
+"
+horizontal_alignment = 1
+
+[node name="Restart" type="VBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -138.0
+offset_top = -83.0
+offset_right = 138.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PrecioneCualquier" type="Label" parent="Background/Restart"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_6234y")
+theme_override_font_sizes/font_size = 15
+text = "Precione cualquier tecla para reiniciar
+"
+
+[node name="ColorRect" type="ColorRect" parent="Background/Restart"]
+custom_minimum_size = Vector2(4.265, 29.785)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
 
 [node name="Timer" type="VBoxContainer" parent="."]
 visible = false
@@ -105,4 +136,9 @@ size_flags_horizontal = 8
 theme_override_fonts/font = ExtResource("2_6234y")
 theme_override_font_sizes/font_size = 60
 
-[connection signal="pressed" from="Background/Perdiste/Restart" to="." method="_on_restart_pressed"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_041fy")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ga63o")
+volume_db = 2.506

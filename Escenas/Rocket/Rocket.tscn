@@ -7,8 +7,8 @@
 [ext_resource type="Animation" uid="uid://bku38gi82xnlr" path="res://Assets/Updated assets/rocket-power-1.res" id="5_fuw4m"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mqu1w"]
-radius = 0.3
-height = 2.4
+radius = 0.4
+height = 3.0
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qjbd5"]
 _data = {

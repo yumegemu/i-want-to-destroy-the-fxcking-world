@@ -2,34 +2,26 @@ extends Node3D
 
 @onready var gui : Control = $GUI
 @onready var timer = $Timer
-@onready var spawmAsteroids = $SpawnAsteriod/TimerSpawn
-@onready var spawmAsteroids2 = $SpawnAsteriod2/TimerSpawn
-@onready var spawmAsteroids3 = $SpawnAsteriod3/TimerSpawn
-@onready var spawmUfo = $SpawnUfo/TimerSpawn
-@onready var spawmStellites = $SpawnSatellites/TimerSpawn
-@onready var spawmStellites2 = $SpawnSatellites/TimerSpawn
-@onready var spawmStellites3 = $SpawnSatellites3/TimerSpawn
-@onready var spawmRocket = $SpawnRocket/TimerSpawn
-@onready var spawmRocket2 = $SpawnRocket2/TimerSpawn
-@onready var spawmRocket3 = $SpawnRocket3/TimerSpawn
-@onready var spawmRocket4 = $SpawnRocket4/TimerSpawn
-@onready var spawmRocket5 = $SpawnRocket5/TimerSpawn
-@onready var spawmRocket6 = $SpawnRocket6/TimerSpawn
-@onready var spawmRocket7 = $SpawnRocket7/TimerSpawn
 @onready var camera = $Camera3D
 
 @onready var rich_text_label = $CanvasLayer/RichTextLabel
 
+var perdio : bool = false
+var levelName= ""
+
 func _ready():
 	gui.start()
 	rich_text_label.modulate = Color.TRANSPARENT
+	levelName = get_tree().current_scene.name
 
 func perdiste():
-	camera.camera_shake()
-	detener_enemigos()
-	timer.set_paused(true)
-	var timer_remainer = timer.time_left
-	gui.perdiste(timer_remainer)
+	if !perdio:
+		perdio = true
+		camera.camera_shake()
+		detener_enemigos()
+		timer.set_paused(true)
+		var timer_remainer = timer.time_left
+		gui.perdiste(timer_remainer)
 
 func detener_enemigos():
 	stop_spawners()
@@ -56,30 +48,54 @@ func delete_enemies():
 
 func _physics_process(_delta: float) -> void:
 	gui.tiempo(timer.time_left + 1)
+	if perdio:
+		if Input.is_anything_pressed():
+			await get_tree().create_timer(0.3).timeout
+			get_tree().change_scene_to_file("res://Escenas/Levels/"+ levelName + ".tscn")
 
 
 func stop_spawners():
 	var sceneName = get_tree().current_scene.name
 
 	if "Level1" == sceneName:
-		spawmAsteroids.stop()
-		spawmAsteroids2.stop()
+		$SpawnAsteriod/TimerSpawn.stop()
+		$SpawnAsteriod2/TimerSpawn.stop()
+		$SpawnAsteriod3/TimerSpawn.stop()
+		$SpawnAsteriod4/TimerSpawn.stop()
+		$SpawnAsteriod5/TimerSpawn.stop()
+		$SpawnAsteriod6/TimerSpawn.stop()
 	elif "Level2" == sceneName:
-		spawmAsteroids.stop()
-		spawmAsteroids2.stop()
-		spawmAsteroids3.stop()
-		spawmUfo.stop()
+		$SpawnAsteriod/TimerSpawn.stop()
+		$SpawnAsteriod2/TimerSpawn.stop()
+		$SpawnAsteriod3/TimerSpawn.stop()
+		$SpawnAsteriod4/TimerSpawn.stop()
+		$SpawnAsteriod5/TimerSpawn.stop()
+		$SpawnAsteriod6/TimerSpawn.stop()
+		$SpawnAsteriod7/TimerSpawn.stop()
+		$SpawnAsteriod8/TimerSpawn.stop()
+		$SpawnUfo/TimerSpawn.stop()
+		$SpawnUfo2/TimerSpawn.stop()
 	elif "Level3" == sceneName:
-		spawmStellites.stop()
-		spawmStellites2.stop()
-		spawmStellites3.stop()
-		spawmUfo.stop()
+		$SpawnSatellites/TimerSpawn.stop()
+		$SpawnSatellites2/TimerSpawn.stop()
+		$SpawnSatellites3/TimerSpawn.stop()
+		$SpawnSatellites4/TimerSpawn.stop()
+		$SpawnSatellites5/TimerSpawn.stop()
+		$SpawnUfo/TimerSpawn.stop()
+		$SpawnUfo2/TimerSpawn.stop()
 	elif "Level4" == sceneName:
-		spawmRocket.stop()
-		spawmRocket2.stop()
-		spawmRocket3.stop()
-		spawmRocket4.stop()
-		spawmRocket5.stop()
-		spawmRocket6.stop()
-		spawmRocket7.stop()
+		$SpawnRocket/TimerSpawn.stop()
+		$SpawnRocket2/TimerSpawn.stop()
+		$SpawnRocket3/TimerSpawn.stop()
+		$SpawnRocket4/TimerSpawn.stop()
+		$SpawnRocket5/TimerSpawn.stop()
+		$SpawnRocket6/TimerSpawn.stop()
+		$SpawnRocket7/TimerSpawn.stop()
+		$SpawnRocket8/TimerSpawn.stop()
+		$SpawnRocket9/TimerSpawn.stop()
+		$SpawnRocket10/TimerSpawn.stop()
+		$SpawnRocket11/TimerSpawn.stop()
+		$SpawnRocket12/TimerSpawn.stop()
+		$SpawnRocket13/TimerSpawn.stop()
+		$SpawnRocket14/TimerSpawn.stop()
 		

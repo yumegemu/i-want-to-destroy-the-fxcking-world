@@ -11,6 +11,7 @@ collision_layer = 2
 script = ExtResource("1_5gxfc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.03)
 shape = SubResource("SphereShape3D_uhf38")
 
 [node name="asteroid1" parent="." instance=ExtResource("2_bqbdb")]
