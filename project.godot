@@ -62,3 +62,8 @@ ui_down={
 
 3d_physics/layer_1="Player"
 3d_physics/layer_2="Enemigo"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
